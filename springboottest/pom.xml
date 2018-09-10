@@ -56,6 +56,12 @@
 	
 	
 	
+	 <!-- Junit -->
+     <dependency>
+         <groupId>junit</groupId>
+         <artifactId>junit</artifactId>
+         <version>4.12</version>
+     </dependency>
 	
 	 <!-- 热部署模块 -->
      <dependency>

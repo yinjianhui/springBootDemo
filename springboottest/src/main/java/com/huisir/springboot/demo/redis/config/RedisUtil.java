@@ -5,11 +5,17 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
+import com.fasterxml.jackson.annotation.JsonClassDescription;
+
+@Component
 public class RedisUtil {
 	
+	@Autowired
 	private RedisTemplate<String, Object> redisTemplate;  
 
     public void setRedisTemplate(RedisTemplate<String, Object> redisTemplate) {  
@@ -515,6 +521,7 @@ public class RedisUtil {
      * @return 移除的个数 
      */  
     public long lRemove(String key,long count,Object value) {  
+    	
         try {  
             Long remove = redisTemplate.opsForList().remove(key, count, value);  
             return remove;  
@@ -523,5 +530,6 @@ public class RedisUtil {
             return 0;  
         }  
     }  
-
+    
+    
 }
