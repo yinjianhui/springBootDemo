@@ -1,8 +1,11 @@
 package com.huisir.springboot.demo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.huisir.springboot.demo.config.AQFindoutConfig;
 
 /**
  * 
@@ -17,7 +20,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class ApplicationDemo implements CommandLineRunner{
 	
-	
+	@Autowired
+    AQFindoutConfig aQFindoutConfig;
+    
 	public static void main(String[] args) {
 		SpringApplication.run(ApplicationDemo.class, args);
 	}
@@ -29,10 +34,12 @@ public class ApplicationDemo implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		System.out.println("dddd");
-		for (String string : args) {
-			System.out.println(string);
-		}
+//		System.out.println("dddd");
+//		for (String string : args) {
+//			System.out.println(string);
+//		}
+	    
+	    aQFindoutConfig.quotaList.forEach(e -> System.out.println(e));
 	}
 
 
